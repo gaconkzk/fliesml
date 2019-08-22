@@ -62,7 +62,7 @@ export default {
     serve({
       port: 8088,
       historyApiFallback: true,
-      contentBase: ['dist', 'static'],
+      contentBase: ['dist'],
       headers: {
         'Access-Control-Allow-Origin': '*'
       }
