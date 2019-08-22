@@ -3,6 +3,7 @@ import babel from 'rollup-plugin-babel'
 import htmlTemplate from 'rollup-plugin-generate-html-template'
 import livereload from 'rollup-plugin-livereload'
 import serve from 'rollup-plugin-serve'
+import postcss from 'rollup-plugin-postcss'
 import nodeResolve from 'rollup-plugin-node-resolve'
 import commonjs from 'rollup-plugin-commonjs'
 
@@ -36,7 +37,7 @@ export default {
   },
   plugins: [
     htmlTemplate({
-      template: 'src/templates/index.html',
+      template: 'templates/index.html',
       target: 'dist/index.html'
     }),
     riot({
@@ -48,10 +49,13 @@ export default {
     babel({
       exclude: 'node_modules/**'
     }),
+    postcss({
+      extensions: ['.css'],
+    }),
     serve({
       port: 8088,
       contentBase: ['dist']
     }),
-    livereload('dist')
+    livereload('src')
   ]
 }

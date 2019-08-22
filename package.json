@@ -8,15 +8,17 @@
   "scripts": {
     "start": "yarn watch",
     "build": "rollup -c",
-    "watch": "rollup -c -w 'src/**'"
+    "watch": "rollup -c -w 'src/**'",
+    "postinstall": "cd node_modules/@riotjs/compiler && yarn install && yarn build"
   },
   "dependencies": {
+    "normalize.css": "^8.0.1",
     "riot": "^4.4.0"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@riotjs/cli": "^4.0.2",
-    "@riotjs/compiler": "https://github.com/riot/compiler.git#dev",
+    "@riotjs/compiler": "riot/compiler#dev",
     "node-sass": "^4.12.0",
     "pug": "^2.0.4",
     "rollup": "^1.19.4",
@@ -25,6 +27,7 @@
     "rollup-plugin-generate-html-template": "^1.2.0",
     "rollup-plugin-livereload": "^1.0.1",
     "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-postcss": "^2.0.3",
     "rollup-plugin-riot": "^4.0.0",
     "rollup-plugin-serve": "^1.0.1",
     "stylus": "^0.54.6"
