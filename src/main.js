@@ -1,6 +1,6 @@
 import * as riot from 'riot'
-import app from './app.riot'
-const mountApp = riot.component(app)
+import mainApp from './app.pug'
+const mountApp = riot.component(mainApp)
 
 mountApp(
   document.getElementById('app')

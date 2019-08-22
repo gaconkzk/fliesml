@@ -11,24 +11,22 @@ import { render } from 'pug'
 import stylus from 'stylus'
 
 registerPreprocessor('css', 'stylus', (code, options) => {
-  console.log(code)
   return {
     code: stylus.render(code)
   }
 })
 
-// // // register the pug preprocessor
-// registerPreprocessor('template', 'pug', (code, options) => {
-//   const { file } = options
+registerPreprocessor('template', 'pug', (code, options) => {
+  const { file } = options
 
-//   return {
-//     code: render(code, {
-//       filename: file,
-//       pretty: true,
-//       doctype: 'html'
-//     })
-//   }
-// })
+  return {
+    code: render(code, {
+      filename: file,
+      pretty: true,
+      doctype: 'html'
+    })
+  }
+})
 
 export default {
   input: 'src/main.js',
@@ -41,10 +39,10 @@ export default {
       template: 'src/templates/index.html',
       target: 'dist/index.html'
     }),
-    riot(),
-    // riot({
-    //   template: 'pug'
-    // }),
+    riot({
+      ext: 'pug',
+      template: 'pug'
+    }),
     nodeResolve(),
     commonjs(),
     babel({
