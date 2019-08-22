@@ -1,6 +1,16 @@
 app
+  navbar
   h3.animated.bounce.duration-2s hello world
   style(type="stylus").
     h3
       color #f23344
       font-size 200%
+
+  script.
+    import navbar from '@/components/navbar'
+
+    export default {
+      components: {
+        navbar
+      }
+    }

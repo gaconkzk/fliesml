@@ -4,6 +4,7 @@ import htmlTemplate from 'rollup-plugin-generate-html-template'
 import livereload from 'rollup-plugin-livereload'
 import serve from 'rollup-plugin-serve'
 import postcss from 'rollup-plugin-postcss'
+import alias from 'rollup-plugin-alias'
 import nodeResolve from 'rollup-plugin-node-resolve'
 import commonjs from 'rollup-plugin-commonjs'
 
@@ -40,6 +41,12 @@ export default {
       template: 'templates/index.html',
       target: 'dist/index.html'
     }),
+    // alias for folders inside `src`
+    alias({
+      // auto file resolve
+      resolve: ['html', '.pug', '.js', '.css', '.scss', '.styl'],
+      '@': '.'
+    }),
     riot({
       ext: 'pug',
       template: 'pug'
@@ -54,8 +61,12 @@ export default {
     }),
     serve({
       port: 8088,
-      contentBase: ['dist']
+      historyApiFallback: true,
+      contentBase: ['dist', 'static'],
+      headers: {
+        'Access-Control-Allow-Origin': '*'
+      }
     }),
-    livereload('src')
+    livereload({ watch: ['dist', 'src'] })
   ]
 }

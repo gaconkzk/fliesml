@@ -1,0 +1,50 @@
+navbar
+  nav#navb.navbar(role="navigation" aria-label="main navigation")
+    .navbar-brand
+      .navbar-item(href="https://bulma.io")
+        img(src="https://bulma.io/images/bulma-logo.png" width="112" height="28")
+  ul
+    li
+      a(href="t1") T1
+    li
+      a.active(href="t2") T2
+    li
+      a(href="t3") T3
+    li
+      a(href="t4") T4
+
+  script.
+    export default {
+      onMounted() {
+        new mojs.Shape({
+          parent:       '#navb',
+          shape:        'circle',
+          fill:         {'#F64040': '#FC46AD'},
+          radius:       {20: 80},
+          duration:     2000,
+          isYoyo:       true,
+          isShowStart:  true,
+          easing:       'elastic.inout',
+          repeat:       999,
+        }).play()
+      }
+    }
+
+  style(type="stylus").
+    ul
+      list-style-type none
+      margin 0
+      padding 0
+      background-color #333
+      overflow hidden
+      li
+        float left
+        a
+          display block
+          color white
+          padding 14px 16px
+          text-decoration none
+          &:hover
+            background-color #111
+          &.active
+            background-color #4caf50
