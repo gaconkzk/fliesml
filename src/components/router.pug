@@ -1,0 +1,15 @@
+router
+  .container(is="{ page }")
+
+  script.
+    import { routes } from '../routes'
+
+    export default {
+      page: 'home-page',
+      onBeforeMount() {
+        const route = routes.find(it => it.path === window.location.pathname)
+        if (route) {
+          this.page = route.component
+        }
+      }
+    }

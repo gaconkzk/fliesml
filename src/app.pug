@@ -1,6 +1,9 @@
 app
-  navbar
-  h3.animated.bounce.duration-2s hello world
+  #navbar(is="navbar")
+  sidebar
+  router
+  footer
+
   style(type="stylus").
     h3
       color #f23344
@@ -8,9 +11,11 @@ app
 
   script.
     import navbar from '@/components/navbar'
+    import router from '@/components/router'
 
     export default {
       components: {
-        navbar
+        navbar,
+        router
       }
     }

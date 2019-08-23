@@ -44,7 +44,7 @@ export default {
     // alias for folders inside `src`
     alias({
       // auto file resolve
-      resolve: ['html', '.pug', '.js', '.css', '.scss', '.styl'],
+      resolve: ['/index.js', 'index.pug', '.html', '.pug', '.js', '.css', '.scss', '.styl'],
       '@': '.'
     }),
     riot({
