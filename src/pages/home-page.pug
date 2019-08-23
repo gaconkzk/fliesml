@@ -1,3 +1,19 @@
 home-page
-  div hello {props.data}
-  p abc
+  c-container
+    c-box#b1(
+      img="https://s3-us-west-2.amazonaws.com/s.cdpn.io/945546/3433202-893bc9989a52eba0.png"
+      color="#00bf9c"
+      btn-text="Sensebot"
+    )
+    c-box#b2(
+      img="https://cdn.dribbble.com/assets/logo-footer-hd-a05db77841b4b27c0bf23ec1378e97c988190dfe7d26e32e1faea7269f9e001b.png"
+      color="#653EE6"
+      btn-text="OnePass"
+    )
+  script.
+    import cContainer from '../components/c-container.pug'
+    import cBox from '../components/c-box.pug'
+
+    export default {
+      components: { cContainer, cBox }
+    }

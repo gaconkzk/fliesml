@@ -1,0 +1,45 @@
+sidebar
+  aside.menu
+    ul.menu-list
+      li <a href="/">Home</a>
+      li <a href="/mel">ML</a>
+
+  script.
+    import anime from 'animejs'
+
+    export default {
+      desktop: true,
+      watchout(m) {
+        if (m.matches) {
+          anime({
+            targets: this.$('aside'),
+            translateX: -220,
+            duration: 500,
+            complete: (anim) => {
+              this.desktop = false
+              this.root.classList.add('hidden')
+              this.update()
+            }
+          })
+        } else {
+          this.desktop = true
+          this.root.classList.remove('hidden')
+          this.update()
+          anime({
+            targets: this.$('aside'),
+            translateX: +0
+          })
+        }
+      },
+      onMounted() {
+        let mquery = window.matchMedia('screen and (max-width: 768px)')
+        mquery.addListener(this.watchout)
+      }
+    }
+  style(type="stylus").
+    .menu
+      height 100%
+      width 220px
+      background-color #243344
+      .side.hidden
+        width 0

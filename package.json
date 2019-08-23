@@ -8,11 +8,11 @@
   "scripts": {
     "start": "yarn watch",
     "build": "rollup -c",
-    "watch": "rollup -c -w 'src/**'",
-    "postinstall": "cd node_modules/@riotjs/compiler && yarn install && yarn build"
+    "watch": "rollup -c -w 'src/**'"
   },
   "dependencies": {
     "@mojs/core": "dkzlv/mojs",
+    "animejs": "^3.1.0",
     "bulma": "^0.7.5",
     "normalize.css": "^8.0.1",
     "riot": "^4.4.0"

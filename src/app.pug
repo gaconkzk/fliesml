@@ -1,21 +1,28 @@
 app
-  #navbar(is="navbar")
-  sidebar
-  router
-  footer
-
-  style(type="stylus").
-    h3
-      color #f23344
-      font-size 200%
+  //- #navbar(is="navbar")
+  //- div.main
+    div.side(is="sidebar")
+  div.content(is="router")
+  //- .footer(is="footer")
 
   script.
     import navbar from '@/components/navbar'
+    import sidebar from '@/components/sidebar'
     import router from '@/components/router'
-
     export default {
       components: {
         navbar,
+        sidebar,
         router
       }
     }
+
+  //- style(type="stylus").
+    .main
+      height calc(100vh - 64px - 135px)
+      .side
+        float: left
+        height 100%
+      .content
+        float: left
+        height 100%
