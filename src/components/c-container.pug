@@ -2,8 +2,27 @@ c-container
   .container
     slot
 
+  script.
+    import anime from 'animejs'
+    export default {
+      onMounted() {
+        anime({
+          targets: this.$$('.box'),
+          skew: [-5, 5],
+          loop:true,
+          delay: (el, i, l) => {
+            return i * 100
+          },
+          endDelay: (el, i, l) => {
+            return (l-i) * 100
+          }
+        })
+      }
+    }
+
   style(type="stylus").
     .container
+      background-color #23444f
       display -webkit-box
       display -ms-flexbox
       display flex
@@ -15,7 +34,7 @@ c-container
       -ms-flex-wrap wrap
       flex-wrap wrap
       width 80vw
-      height 100vh
+      height 300px
       margin-left 6vw
       -webkit-transform rotateX(23deg) rotateZ(-9deg) rotateY(15deg) scale3d(1, 1, -0.9)
       transform rotateX(23deg) rotateZ(-9deg) rotateY(15deg) scale3d(1, 1, -0.9)

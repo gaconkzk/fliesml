@@ -1,20 +1,16 @@
 c-box
   .box.bh
     .cover
-      img(src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/945546/3433202-893bc9989a52eba0.png")
+      img(src="{props.img}")
     button
       div
 
   script.
-    import anime from 'animejs'
-
     export default {
       onMounted() {
-        anime({
-          targets: this.$('.box'),
-          translateX: -250,
-          duration: Math.random(1000)
-        })
+        this.root.style.setProperty('--img-url', `url('${this.props.img}')`)
+        this.root.style.setProperty('--btn-color', this.props.btnColor)
+        this.root.style.setProperty('--btn-text', `'${this.props.btnText}'`)
       }
     }
 
@@ -103,9 +99,9 @@ c-box
     .bh
       .cover
         &::after
-          background-image url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/945546/3433202-893bc9989a52eba0.png')
+          background-image var(--img-url)
       button
-        border 1px solid #00bf9c
+        border 1px solid var(--btn-color)
         color #fff
         font-size 22px
         text-align right
@@ -113,15 +109,15 @@ c-box
         line-height 40px
         &::after
           content ""
-          background-color #00bf9c
+          background-color var(--btn-color)
           top -85px
         div
           &::before
-            content 'Sensebot'
+            content var(--btn-text)
             position relative
             top -44px
             left -4px
-            color #00bf9c
+            color var(--btn-color)
             font-size 21px
             font-weight 300
       &:hover
@@ -132,7 +128,7 @@ c-box
           &::before
             width 120%
             opacity .8
-            background-color #00bf9c
+            background-color var(--btn-color)
 
     .cover
       -webkit-transition all 400ms ease-in-out
