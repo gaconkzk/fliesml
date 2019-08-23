@@ -8,14 +8,12 @@ c-container
       onMounted() {
         anime({
           targets: this.$$('.box'),
-          skew: [-5, 5],
           loop:true,
-          delay: (el, i, l) => {
-            return i * 100
-          },
-          endDelay: (el, i, l) => {
-            return (l-i) * 100
-          }
+          translateX: 20,
+          direction: 'alternate',
+          easing: 'linear',
+          duration: 500,
+          delay: anime.stagger(600)
         })
       }
     }
