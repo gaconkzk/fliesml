@@ -1,12 +1,15 @@
 c-box
   .box.bh
     .cover
-      img(src="{props.img}")
+      img-loader(src="{props.img}" width="160" height="215" alt="x")
     button
       div
 
   script.
+    import imgLoader from './imgloader.pug'
+
     export default {
+      components: {imgLoader},
       onMounted() {
         this.root.style.setProperty('--img-url', `url('${this.props.img}')`)
         this.root.style.setProperty('--btn-color', this.props.btnColor)

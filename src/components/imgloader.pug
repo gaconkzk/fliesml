@@ -1,0 +1,14 @@
+img-loader
+  img.loading(src="{props.src}" width="{props.width}" height="{props.height}")
+  script.
+    export default {
+      onMounted() {
+        this.root.style.setProperty('--i-l-w', `${this.props.width}px`)
+        this.root.style.setProperty('--i-l-h', `${this.props.height}px`)
+      }
+    }
+  style(type="stylus").
+    img
+      cursor pointer
+      .loading
+        background transparent url('http://thinkfuture.com/wp-content/uploads/2013/10/loading_spinner.gif') center no-repeat

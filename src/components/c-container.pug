@@ -6,6 +6,10 @@ c-container
     import anime from 'animejs'
     export default {
       onMounted() {
+        this.root.style.setProperty('--rotate-x-deg', `${this.props.rotatex || '0deg'}`)
+        this.root.style.setProperty('--rotate-y-deg', `${this.props.rotatey || '0deg'}`)
+        this.root.style.setProperty('--rotate-z-deg', `${this.props.rotatez || '0deg'}`)
+
         anime({
           targets: this.$$('.box'),
           loop:true,
@@ -31,8 +35,8 @@ c-container
       justify-content space-around
       -ms-flex-wrap wrap
       flex-wrap wrap
-      width 80vw
+      width 100vw
       height 300px
-      margin-left 6vw
-      -webkit-transform rotateX(23deg) rotateZ(-9deg) rotateY(15deg) scale3d(1, 1, -0.9)
-      transform rotateX(23deg) rotateZ(-9deg) rotateY(15deg) scale3d(1, 1, -0.9)
+      padding-top 2vh
+      -webkit-transform rotateX(var(--rotate-x-deg)) rotateZ(var(--rotate-z-deg)) rotateY(var(--rotate-y-deg)) scale3d(1, 1, -0.9)
+      transform rotateX(var(--rotate-x-deg)) rotateZ(var(--rotate-z-deg)) rotateY(var(--rotate-y-deg)) scale3d(1, 1, -0.9)
