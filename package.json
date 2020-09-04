@@ -21,7 +21,7 @@
     "@babel/core": "^7.5.5",
     "@riotjs/cli": "^4.0.2",
     "@riotjs/compiler": "^4.3.11",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.1",
     "pug": "^2.0.4",
     "rollup": "^1.19.4",
     "rollup-plugin-alias": "^1.5.2",
